@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Converter View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CurrencyConverter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ConverterViewController" customModule="CurrencyConverter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,20 +27,11 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="FzH-Rv-pMp"/>
                                 </connections>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 USD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYF-dh-Cfg">
-                                <rect key="frame" x="16" y="71" width="382" height="57"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="57" id="50O-Fr-5q5"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="23"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RK4-gL-EbA">
-                                <rect key="frame" x="16" y="161" width="382" height="486"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <rect key="frame" x="16" y="201" width="382" height="446"/>
+                                <color key="backgroundColor" red="0.79629002540000005" green="0.86840741659999998" blue="0.60741876179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="mah-0i-QNI">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="mah-0i-QNI" customClass="CurrencyCell" customModule="CurrencyConverter" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="382" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mah-0i-QNI" id="VYk-n7-0IF">
@@ -56,22 +47,46 @@
                                     <outlet property="prefetchDataSource" destination="BYZ-38-t0r" id="LGQ-WX-zRB"/>
                                 </connections>
                             </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please Enter Amount" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wsG-Wy-Y4f">
+                                <rect key="frame" x="36" y="81" width="342" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="VvB-jK-WwL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency Conversion" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zfb-pc-JRo">
+                                <rect key="frame" x="20" y="159" width="374" height="34"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10488559437446854" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="RK4-gL-EbA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="13I-Qb-9WI"/>
+                            <constraint firstItem="Zfb-pc-JRo" firstAttribute="top" secondItem="wsG-Wy-Y4f" secondAttribute="bottom" constant="8" symbolic="YES" id="19F-C4-pHK"/>
                             <constraint firstItem="7SI-we-0XD" firstAttribute="top" secondItem="RK4-gL-EbA" secondAttribute="bottom" constant="49" id="1N1-YD-QxM"/>
-                            <constraint firstItem="jYF-dh-Cfg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="9Au-I2-wbb"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jYF-dh-Cfg" secondAttribute="trailing" constant="16" id="Fwl-6r-jSs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wsG-Wy-Y4f" secondAttribute="trailing" constant="36" id="283-DU-OZf"/>
+                            <constraint firstItem="wsG-Wy-Y4f" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="37" id="5ss-Ko-CVZ"/>
+                            <constraint firstItem="Zfb-pc-JRo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ID6-Ga-d8N"/>
                             <constraint firstItem="7SI-we-0XD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MHU-wB-QFY"/>
-                            <constraint firstItem="RK4-gL-EbA" firstAttribute="top" secondItem="jYF-dh-Cfg" secondAttribute="bottom" constant="33" id="VzS-0q-K0D"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RK4-gL-EbA" secondAttribute="trailing" constant="16" id="X3u-U8-oaI"/>
-                            <constraint firstItem="jYF-dh-Cfg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="27" id="rWh-gX-9Uy"/>
+                            <constraint firstItem="RK4-gL-EbA" firstAttribute="top" secondItem="Zfb-pc-JRo" secondAttribute="bottom" constant="8" symbolic="YES" id="fMD-nH-EtX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zfb-pc-JRo" secondAttribute="trailing" constant="20" id="jOY-en-1Al"/>
+                            <constraint firstItem="wsG-Wy-Y4f" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="36" id="oxm-gh-mAy"/>
                             <constraint firstItem="7SI-we-0XD" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rYh-QO-p5H"/>
+                            <constraint firstItem="RK4-gL-EbA" firstAttribute="top" secondItem="wsG-Wy-Y4f" secondAttribute="bottom" constant="50" id="rxx-hX-V6O"/>
                             <constraint firstAttribute="bottom" secondItem="7SI-we-0XD" secondAttribute="bottom" id="vI3-Lh-fDB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="amountTF" destination="wsG-Wy-Y4f" id="geP-Pk-FkE"/>
+                        <outlet property="currencyPV" destination="7SI-we-0XD" id="n14-gu-1G1"/>
+                        <outlet property="currencyTV" destination="RK4-gL-EbA" id="mJy-37-Rcm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -79,9 +94,6 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

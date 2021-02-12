@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ConverterView: class {
-  func displaySomething(viewModel: ConverterModel.ViewModel)
+    func displaySomething(viewModel: ConverterModel.ViewModel)
 }
 
 class ConverterViewController: UIViewController {
@@ -17,9 +17,12 @@ class ConverterViewController: UIViewController {
     var interactor: ConverterInteractorDelegate?
     var router:  ConverterRouterDelegate?
     
+    @IBOutlet weak var amountTF: UITextField!
+    @IBOutlet weak var currencyTV: UITableView!
+    @IBOutlet weak var currencyPV: UIPickerView!
     required init?(coder aDecoder: NSCoder) {
-      super.init(coder: aDecoder)
-      setUp()
+        super.init(coder: aDecoder)
+        setUp()
     }
     
     private func setUp() {
@@ -34,10 +37,15 @@ class ConverterViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        self.doSomeThing()
+        currencyTV.delegate = self
+        currencyTV.dataSource = self
+        currencyPV.delegate = self
+        currencyPV.dataSource = self
+        currencyTV.register(UINib(nibName: "CurrencyCell", bundle: nil), forCellReuseIdentifier: "CurrencyCell")
+        self.fetchCurencies()
     }
     
-    private func doSomeThing() {
+    private func fetchCurencies() {
         let request = ConverterModel.Request()
         self.interactor?.doSomething(request: request)
     }
@@ -47,7 +55,35 @@ class ConverterViewController: UIViewController {
     }
 }
 
-extension ConverterViewController: ConverterView {
+extension ConverterViewController: ConverterView,UITableViewDelegate,UITableViewDataSource,  UIPickerViewDelegate,UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        4
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+        
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyCell",
+                                                 for: indexPath) as! CurrencyCell
+        return cell
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 50
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return "USD"
+    }
     
     func displaySomething(viewModel: ConverterModel.ViewModel) {
         // display here
