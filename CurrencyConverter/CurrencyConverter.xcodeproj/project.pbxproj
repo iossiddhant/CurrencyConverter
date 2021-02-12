@@ -32,6 +32,9 @@
 		99236F8A25D6711B00CCE3B7 /* CurrencyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99236F8625D6711B00CCE3B7 /* CurrencyCell.xib */; };
 		99236F8B25D6711B00CCE3B7 /* CurrencyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99236F8625D6711B00CCE3B7 /* CurrencyCell.xib */; };
 		99236F8C25D6711B00CCE3B7 /* CurrencyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99236F8625D6711B00CCE3B7 /* CurrencyCell.xib */; };
+		995998E325D6C94600D4D7A3 /* TextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995998E225D6C94600D4D7A3 /* TextField+Extension.swift */; };
+		995998E425D6C94600D4D7A3 /* TextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995998E225D6C94600D4D7A3 /* TextField+Extension.swift */; };
+		995998E525D6C94600D4D7A3 /* TextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995998E225D6C94600D4D7A3 /* TextField+Extension.swift */; };
 		99E82FC125D64C3F005B329A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E82FC025D64C3F005B329A /* AppDelegate.swift */; };
 		99E82FC325D64C3F005B329A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E82FC225D64C3F005B329A /* SceneDelegate.swift */; };
 		99E82FC525D64C3F005B329A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E82FC425D64C3F005B329A /* ViewController.swift */; };
@@ -74,6 +77,7 @@
 		99236F6B25D661F900CCE3B7 /* ConverterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterModel.swift; sourceTree = "<group>"; };
 		99236F8525D6711B00CCE3B7 /* CurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCell.swift; sourceTree = "<group>"; };
 		99236F8625D6711B00CCE3B7 /* CurrencyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyCell.xib; sourceTree = "<group>"; };
+		995998E225D6C94600D4D7A3 /* TextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Extension.swift"; sourceTree = "<group>"; };
 		99E82FBD25D64C3F005B329A /* CurrencyConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99E82FC025D64C3F005B329A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99E82FC225D64C3F005B329A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 				99E82FC925D64C40005B329A /* Assets.xcassets */,
 				99E82FCB25D64C40005B329A /* LaunchScreen.storyboard */,
 				99E82FCE25D64C40005B329A /* Info.plist */,
+				995998E225D6C94600D4D7A3 /* TextField+Extension.swift */,
 			);
 			path = CurrencyConverter;
 			sourceTree = "<group>";
@@ -469,6 +474,7 @@
 				99E82FC525D64C3F005B329A /* ViewController.swift in Sources */,
 				99E82FC125D64C3F005B329A /* AppDelegate.swift in Sources */,
 				99E82FC325D64C3F005B329A /* SceneDelegate.swift in Sources */,
+				995998E325D6C94600D4D7A3 /* TextField+Extension.swift in Sources */,
 				99236F6C25D661F900CCE3B7 /* ConverterPresenter.swift in Sources */,
 				99236F6F25D661F900CCE3B7 /* ConverterWorker.swift in Sources */,
 				99236F7525D661F900CCE3B7 /* ConverterViewController.swift in Sources */,
@@ -482,6 +488,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				995998E425D6C94600D4D7A3 /* TextField+Extension.swift in Sources */,
 				99236F8825D6711B00CCE3B7 /* CurrencyCell.swift in Sources */,
 				99236F7025D661F900CCE3B7 /* ConverterWorker.swift in Sources */,
 				99236F7C25D661F900CCE3B7 /* ConverterModel.swift in Sources */,
@@ -497,6 +504,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				995998E525D6C94600D4D7A3 /* TextField+Extension.swift in Sources */,
 				99236F8925D6711B00CCE3B7 /* CurrencyCell.swift in Sources */,
 				99236F7125D661F900CCE3B7 /* ConverterWorker.swift in Sources */,
 				99236F7D25D661F900CCE3B7 /* ConverterModel.swift in Sources */,

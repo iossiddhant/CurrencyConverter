@@ -7,9 +7,20 @@
 //
 
 import UIKit
+import Alamofire
 
 class ConverterWorker {
-    func doSomething(request: ConverterModel.Request, aCompletion: @escaping (Any) -> Void) {
-      aCompletion("")
-  }
+    func fetchCurrency(request: ConverterModel.Request, aCompletion: @escaping (ConverterModel.Response.CurrencyConverter) -> Void) {
+        let url = "http://api.currencylayer.com/historical?access_key=7a24e82244f5a2d2cd08be4d551f35ab&date=2010-02-12&currencies=USD,AUD,CAD,PLN,MXN&format=1"
+        
+        AF.request(url).responseData { (data) in
+            let decoder = JSONDecoder()
+            if let _data = data.value {
+                if let currencyJson = try? decoder.decode(ConverterModel.Response.CurrencyConverter.self, from: _data ) {
+                  aCompletion(currencyJson)
+                }
+            }
+        }
+    }
 }
+

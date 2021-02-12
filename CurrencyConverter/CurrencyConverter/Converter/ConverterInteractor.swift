@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ConverterInteractorDelegate {
-  func doSomething(request: ConverterModel.Request)
+  func fetchCurrency(request: ConverterModel.Request)
 }
 
 
@@ -17,9 +17,9 @@ class ConverterInteractor: ConverterInteractorDelegate {
     var presenter: ConverterPresenterDelegate!
     var worker = ConverterWorker()
     
-    func doSomething(request: ConverterModel.Request) {
-        worker.doSomething(request: request) { (any) in
-            self.presenter.presentSomething(response: ConverterModel.Response())
+    func fetchCurrency(request: ConverterModel.Request) {
+        worker.fetchCurrency(request: request) { (_response) in
+            self.presenter.presentfetchedCurrency(response:_response )
         }
     }
     

@@ -9,14 +9,14 @@
 import UIKit
 
 protocol ConverterPresenterDelegate {
-  func presentSomething(response: ConverterModel.Response)
+    func presentfetchedCurrency(response: ConverterModel.Response.CurrencyConverter)
 }
 
 class ConverterPresenter: ConverterPresenterDelegate {
     weak var viewController: ConverterView?
     
-    func presentSomething(response: ConverterModel.Response) {
-        let viewData = ConverterModel.ViewModel()
-        viewController?.displaySomething(viewModel: viewData)
+    func presentfetchedCurrency(response: ConverterModel.Response.CurrencyConverter) {
+        let viewData = ConverterModel.ViewModel(quotes: response.quotes, source: response.source)
+        viewController?.displayfetchedCurrency(viewModel: viewData)
     }
 }
