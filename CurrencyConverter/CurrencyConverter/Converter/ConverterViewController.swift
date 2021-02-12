@@ -19,7 +19,7 @@ class ConverterViewController: UIViewController {
     private var quotes =  [String: Double]()
     private var sourceCurrency = ""
     private var amount :Double = 0.0
-  
+    
     
     
     @IBOutlet weak var amountTF: UITextField!
@@ -93,7 +93,12 @@ extension ConverterViewController: ConverterView,UITableViewDelegate,UITableView
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return Array(self.quotes.keys)[row]
+        let curency = Array(Array(self.quotes.keys)[row].components(separatedBy: self.sourceCurrency))[1]
+        if curency == "" {
+            return self.sourceCurrency
+        } else {
+            return Array(Array(self.quotes.keys)[row].components(separatedBy: self.sourceCurrency))[1]
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
